@@ -1,0 +1,26 @@
+[project]
+name = "ai-study"
+version = "0.1.0"
+description = "Self-study AI roadmap: math to LLMs to agents to CUDA"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "jupyterlab",
+]
+
+[tool.uv]
+package = false
+
+# PyTorch comes from PyTorch's own index so you get a CUDA build.
+# Setup step: uncomment the five lines below, replace cuXXX with the CUDA tag
+# that pytorch.org/get-started shows for your system (for example cu128),
+# then run `uv add torch`. See phase-0-setup/README.md.
+
+# [[tool.uv.index]]
+# name = "pytorch"
+# url = "https://download.pytorch.org/whl/cuXXX"
+# explicit = true
+#
+# [tool.uv.sources]
+# torch = { index = "pytorch" }

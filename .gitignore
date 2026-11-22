@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Data, model weights and run logs: too large for git
+data/
+datasets/
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.gguf
+*.bin
+*.npy
+*.npz
+wandb/
+runs/
+
+# Build output (C, CUDA)
+build/
+*.o
+*.so
+a.out
+
+# Editors and OS
+.DS_Store
+*.swp
