@@ -15,6 +15,16 @@ Companion to [AI_ROADMAP.md](AI_ROADMAP.md). The roadmap says *what* to learn an
 | Sat | 4h | Build: code along, then code it yourself |
 | Sun | 3h + 1h | Finish the build, then the **Reinforce** block |
 
+**Weeks 1 to 4 run two tracks.** Weekdays stay on math. Weekends become mostly an **agents side track** (pulled forward from Phase 5), so the math phase isn't math all week:
+
+| Day | Time | What it's for |
+|---|---|---|
+| Mon to Fri | 1h | Math |
+| Sat | 4h | Agents: build |
+| Sun | 2h + 1h + 1h | Math lab, then agents, then Reinforce covering both |
+
+Agent work goes in `phase-5-agents/`. The side track needs an API key from a model provider and only basic Python. The tutorials are written in various languages; follow them in Python.
+
 **Reinforce rules.** Do it closed-book first: no notes, no video, no AI. Then check your work. For math, check numerically in NumPy. For explanations, ask a model or a LearnHarness Practice session to grade your answer and find the gap. Anything you miss goes on Monday's warm-up list. Never skip Reinforce to catch up; cut new material instead.
 
 **Falling behind.** Weeks 18 and 36 are buffers. Use them to catch up, or move them to cover travel or a busy stretch at work. If you lose a weekday, fold it into the weekend. If you lose a weekend, slide the week.
@@ -71,8 +81,14 @@ ai-study/
 - [ ] **Wed Nov 25 · 1h** — Chapter 7, *Inverse matrices, column space and null space*.
 - [ ] **Thu Nov 26 · Thanksgiving** — Off. Optional: 15 minutes rereading your week's notes.
 - [ ] **Fri Nov 27 · 1h** — Chapter 8, *Nonsquare matrices*. Clone [Tensor Puzzles](https://github.com/srush/Tensor-Puzzles) and do puzzles 1 to 3.
-- [ ] **Sat Nov 28 · 4h** — Build a grid visualizer in NumPy and matplotlib: given any 2×2 matrix, draw the original grid and the transformed grid, with î and ĵ highlighted (2.5h). Try a rotation, a shear, a rank-1 matrix, and a matrix with negative determinant. Tensor Puzzles (1.5h).
-- [ ] **Sun Nov 29 · 4h** — Extend the visualizer: animate from the identity to the matrix, and shade the unit square so its area shows the determinant (2h). More Tensor Puzzles (1h). Reinforce (1h).
+- [ ] **Sat Nov 28 · 4h · Agents: your first agent loop**
+  - Read [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (45m). It explains when to use an agent at all.
+  - Get an API key and make one API call that uses a tool, following your provider's tool-use docs (for example Anthropic's [tool use guide](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview)) (45m).
+  - Follow [How to Build an Agent](https://ampcode.com/how-to-build-an-agent) in Python: a loop with `read_file`, `list_files` and `edit_file` tools (2.5h).
+- [ ] **Sun Nov 29 · 4h**
+  - Math lab (2h): a grid visualizer in NumPy and matplotlib. Given any 2×2 matrix, draw the original and transformed grid with î and ĵ highlighted. Try a rotation, a shear, a rank-1 matrix, and a matrix with negative determinant. Commit it to `phase-1-math/`.
+  - Agents (1h): close the tutorial and rewrite your loop in your own structure.
+  - Reinforce (1h).
 
 **Reinforce**
 
@@ -82,18 +98,28 @@ ai-study/
 4. For [[1, 2], [2, 4]]: the rank, the column space, the null space, and why it has no inverse.
 5. A 3×2 matrix: what dimension goes in, what comes out, and what shape is its column space?
 6. ML link: a layer maps 768 dimensions to 3,072. What is the shape of W? If W had rank 64, what would that mean for its outputs?
+7. Agents: draw your agent loop from memory. What goes into each API call, what comes back when the model wants a tool, who actually runs the tool, and what ends the loop?
 
 ## Week 2 · Nov 30 – Dec 6 · Dot products, change of basis, eigenvectors, SVD
 
-*Roadmap 1.1*
+*Roadmap 1.1. This week overlaps NVIDIA GTC in Washington (Nov 30 to Dec 3), so Monday to Thursday are video-only: each 3Blue1Brown chapter is about 15 minutes, which fits a train ride or an evening at the hotel. Skip any day you can't fit and catch up on Friday.*
 
-- [ ] **Mon Nov 30 · 1h** — Warm-up. Chapter 9, *Dot products and duality*.
-- [ ] **Tue Dec 1 · 1h** — Skim chapter 10, *Cross products* (15m). Read [Mathematics for Machine Learning](https://mml-book.github.io/) sections 3.1 to 3.4: norms, inner products, lengths and angles (45m).
-- [ ] **Wed Dec 2 · 1h** — Chapter 13, *Change of basis*. Revisit our b₁ = (2, 1), b₂ = (−1, 1) example.
-- [ ] **Thu Dec 3 · 1h** — Chapter 14, *Eigenvectors and eigenvalues*.
-- [ ] **Fri Dec 4 · 1h** — Chapter 15, *A quick trick for computing eigenvalues*; skim chapter 16, *Abstract vector spaces*.
-- [ ] **Sat Dec 5 · 4h** — SVD: watch the SVD lecture in [MIT 18.065](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/) (1h); read MML section 4.5 (1h). Lab: compress a grayscale photo with SVD, keeping the top k singular values, and plot reconstruction error against k (2h).
-- [ ] **Sun Dec 6 · 4h** — Lab: download [GloVe](https://nlp.stanford.edu/projects/glove/) 50-dimensional vectors; write cosine similarity, nearest neighbors, and king − man + woman (2h). Implement power iteration to find the top eigenvector of a matrix and check against `np.linalg.eig` (1h). Reinforce (1h).
+- [ ] **Mon Nov 30 · 15m (GTC)** — Optional. Chapter 9 video, *Dot products and duality*.
+- [ ] **Tue Dec 1 · 15m (GTC)** — Chapter 13 video, *Change of basis*. Think back to our b₁ = (2, 1), b₂ = (−1, 1) example.
+- [ ] **Wed Dec 2 · 15m (GTC)** — Chapter 14 video, *Eigenvectors and eigenvalues*.
+- [ ] **Thu Dec 3 · 15m (GTC)** — Chapter 15 video, *A quick trick for computing eigenvalues*.
+- [ ] **Fri Dec 4 · 1h** — Catch up on any videos you missed, then work the questions in the text lessons for chapters 9, 13 and 14. Skim chapters 10 and 16 if time is left.
+- [ ] **Sat Dec 5 · 4h · Agents: tools and a sandbox**
+  - Read [Writing Effective Tools for Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (45m).
+  - Add a shell tool that can only run inside a sandbox: a Docker container, or a scratch directory with an allowlist of commands (1.5h).
+  - Add a code search tool, for example one that wraps `rg` (45m).
+  - Run the agent on 5 small coding tasks and save each conversation as a JSON trace in `phase-5-agents/traces/` (1h).
+- [ ] **Sun Dec 6 · 4h**
+  - Math lab (2h): watch the first hour of the SVD lecture in [MIT 18.065](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/) (1h). Then compress a grayscale photo with SVD, keeping the top k singular values, and plot the reconstruction error against k (1h).
+  - Agents (1h): skim [12-Factor Agents](https://github.com/humanlayer/12-factor-agents) and note which factors your agent breaks.
+  - Reinforce (1h).
+
+**At GTC:** if you can pick sessions, CUDA, inference and agent talks will connect directly to Phases 4 to 6. Write down anything you don't understand in this week's note; most of it will make sense by summer.
 
 **Reinforce**
 
@@ -101,7 +127,8 @@ ai-study/
 2. Take (3, 2) in the basis b₁ = (2, 1), b₂ = (−1, 1). Convert it to standard coordinates and back. Write both change-of-basis matrices.
 3. By hand: eigenvalues and eigenvectors of [[3, 1], [0, 2]]. Check in NumPy.
 4. From your SVD lab: what k keeps 90% of the energy? In one paragraph, explain why LoRA (Phase 4) is a bet that weight updates are low-rank.
-5. Write 10 one-line claims from weeks 1 and 2 in `notes/`, each with the reason it is true.
+5. Agents: pick one tool your agent misused in its traces. Rewrite its description and say what you changed and why.
+6. Agents: what stops your shell tool from touching files outside the sandbox? Try to break it.
 
 ## Week 3 · Dec 7 – Dec 13 · Calculus and matrix calculus
 
@@ -112,8 +139,14 @@ ai-study/
 - [ ] **Wed Dec 9 · 1h** — Partial derivatives and the gradient: the first units of [Khan Academy Multivariable Calculus](https://www.khanacademy.org/math/multivariable-calculus).
 - [ ] **Thu Dec 10 · 1h** — [The Matrix Calculus You Need for Deep Learning](https://arxiv.org/abs/1802.01528), through the section on Jacobians.
 - [ ] **Fri Dec 11 · 1h** — Same paper: element-wise operations and the vector chain rule.
-- [ ] **Sat Dec 12 · 4h** — Same paper: the gradient of a neuron and its loss (1.5h). Write `numerical_grad(f, x)` using central differences and test it against hand-derived derivatives of 10 functions, including sigmoid and softmax (2.5h).
-- [ ] **Sun Dec 13 · 4h** — By hand: the gradient of mean squared error for linear regression with respect to w and b, and of cross-entropy for logistic regression. Verify both with `numerical_grad` (3h). Reinforce (1h).
+- [ ] **Sat Dec 12 · 4h · Agents: your first MCP server**
+  - Read the [Model Context Protocol](https://modelcontextprotocol.io/) docs on architecture and server primitives, from the current spec (1h).
+  - Build an MCP server with two tools over something work-shaped, using fake data (for example a status lookup and a configuration query), with the official Python SDK (2h).
+  - Connect it to your agent, and to an existing MCP client such as Claude Code, and compare how each uses it (1h).
+- [ ] **Sun Dec 13 · 4h**
+  - Math lab (2h): write `numerical_grad(f, x)` using central differences (30m). By hand, derive the gradient of mean squared error for linear regression with respect to w and b, and of cross-entropy for logistic regression, then check both with `numerical_grad` (1.5h).
+  - Agents (1h): read [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
+  - Reinforce (1h).
 
 **Reinforce**
 
@@ -122,6 +155,7 @@ ai-study/
 3. Explain why the Jacobian of f(x) = Wx is W, using the column picture from week 1.
 4. Show that the gradient of cross-entropy loss with respect to the softmax inputs is p − y. Verify numerically.
 5. In three sentences, explain "backpropagation is the chain rule".
+6. Agents: name the MCP server primitives and give one use for each. Why would you put a capability behind MCP instead of hard-coding it as a tool?
 
 ## Week 4 · Dec 14 – Dec 20 · Probability, information theory, optimization
 
@@ -132,8 +166,14 @@ ai-study/
 - [ ] **Wed Dec 16 · 1h** — Seeing Theory chapters 4 and 5: maximum likelihood and Bayesian inference.
 - [ ] **Thu Dec 17 · 1h** — [Visual Information Theory](https://colah.github.io/posts/2015-09-Visual-Information/) (Olah), full read.
 - [ ] **Fri Dec 18 · 1h** — [Ruder's gradient descent overview](https://arxiv.org/abs/1609.04747), sections on SGD, momentum and Adam. Play with the demos in [Why Momentum Really Works](https://distill.pub/2017/momentum/).
-- [ ] **Sat Dec 19 · 4h** — **Phase 1 project, part 1:** linear regression in NumPy only, both closed-form and gradient descent. Check your gradients with `numerical_grad`.
-- [ ] **Sun Dec 20 · 4h** — **Project, part 2:** logistic regression on a 2-class toy dataset; plot the loss and the decision boundary. Implement SGD, momentum and Adam and compare their loss curves (3h). Reinforce (1h).
+- [ ] **Sat Dec 19 · 4h · Agents: compaction and your first evals**
+  - Add context compaction (summarize old turns when the conversation passes a token budget) and a notes file the agent can write to and read back (2h).
+  - Write 10 small tasks, each with an automatic check such as a test that must pass, and run the agent on all of them (1.5h).
+  - Read every trace (30m).
+- [ ] **Sun Dec 20 · 4h**
+  - Math lab (2h): **Phase 1 project**, in NumPy only. Linear regression, both closed-form and gradient descent (1h). Logistic regression on a 2-class toy dataset, plotting the loss and decision boundary (1h). Check every gradient with `numerical_grad`. Stretch, if you have spare time over the holidays: compare SGD, momentum and Adam on the same problem.
+  - Agents (1h): error analysis. Sort the failures from yesterday's traces into categories and count them.
+  - Reinforce (1h).
 
 **Reinforce**
 
@@ -141,9 +181,12 @@ ai-study/
 2. Entropy in bits of a fair coin and of a 90/10 coin.
 3. A model predicts [0.7, 0.2, 0.1] and the true class is 0. Compute the cross-entropy, and explain why this is exactly an LLM's loss for one token.
 4. Compute KL(p‖q) and KL(q‖p) for p = [0.5, 0.5], q = [0.9, 0.1]. Why do they differ?
-5. Why does momentum help in a long, narrow valley? Point to your loss curves.
+5. Why does momentum help in a long, narrow valley? Use the demos in "Why Momentum Really Works" to explain.
+6. Agents: list your top three failure types with counts, and the harness change you'd make for each. How many tokens did compaction save, and what did the agent forget?
 
-**Phase 1 checkpoint.** You can read matrix notation and picture the transformation, derive a gradient by hand and check it numerically, and explain cross-entropy. Tick Phase 1 in the roadmap.
+**Phase 1 checkpoint.** You can read matrix notation and picture the transformation, derive a gradient by hand and check it numerically, and explain cross-entropy. On the agents side, you have a working agent with tools, a sandbox, an MCP server, compaction, and a first set of evals. Tick Phase 1 in the roadmap.
+
+**After week 4** the side track pauses and weekends go back to building for the main phase. Phase 2 is where the math turns into code, so it rarely feels like math. If a later stretch drags, add a side track again: run agents on weekends, or swap one Sunday for [GPU Puzzles](https://github.com/srush/GPU-Puzzles).
 
 ---
 
@@ -525,35 +568,37 @@ Catch up on anything unfinished first. If you're caught up:
 
 # Phase 5: Agents, harnesses and loops (weeks 24 to 27)
 
-## Week 24 · May 3 – May 9 · Prompting, foundations, the agent loop
+You built the basic agent in the weeks 1 to 4 side track: the loop, tools, a sandbox, an MCP server, compaction and 10 evals. This phase goes deeper: theory, running it on your own model, cost, harness engineering, retrieval, evals and security.
+
+## Week 24 · May 3 – May 9 · Foundations, and your agent on your own model
 
 *Roadmap 5.0 to 5.2*
 
 - [ ] **Mon May 3 · 1h** — Warm-up. Skim the [prompt engineering overview](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview); do chapters 1 to 3 of the [interactive tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial).
 - [ ] **Tue May 4 · 1h** — [ReAct](https://arxiv.org/abs/2210.03629), first pass.
 - [ ] **Wed May 5 · 1h** — [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) (Weng).
-- [ ] **Thu May 6 · 1h** — [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents).
-- [ ] **Fri May 7 · 1h** — [12-Factor Agents](https://github.com/humanlayer/12-factor-agents).
-- [ ] **Sat May 8 · 4h** — Follow [How to Build an Agent](https://ampcode.com/how-to-build-an-agent): a coding agent loop with read, list and edit tools against an API.
-- [ ] **Sun May 9 · 4h** — Rebuild it from scratch in your own structure, without the tutorial, and add a shell tool confined to a sandbox (a container or a restricted directory) (3h). Reinforce (1h).
+- [ ] **Thu May 6 · 1h** — [A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (OpenAI).
+- [ ] **Fri May 7 · 1h** — Reread your December agent code and traces with five months more knowledge. List what you would change.
+- [ ] **Sat May 8 · 4h** — Point your agent at a local model served through an OpenAI-compatible endpoint (llama.cpp or vLLM, from week 21). Run your 10 evals against it and against the API model.
+- [ ] **Sun May 9 · 4h** — Fix the worst problems from yesterday: tool-call formatting, context length, retries (3h). Reinforce (1h).
 
 **Reinforce**
 
 1. Draw the agent loop, including what ends it.
 2. Classify five scenarios of your choosing as "workflow" or "agent", and justify each.
-3. Run your agent on five tasks and list every failure you saw.
+3. Compare the local and API models on your evals. Where did the local model break, and is the cause the model, the context length, or your harness?
 
 ## Week 25 · May 10 – May 16 · Context engineering, tools, MCP
 
 *Roadmap 5.3*
 
-- [ ] **Mon May 10 · 1h** — Warm-up. [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
-- [ ] **Tue May 11 · 1h** — [Writing Effective Tools for Agents](https://www.anthropic.com/engineering/writing-tools-for-agents).
-- [ ] **Wed May 12 · 1h** — [Lessons from Building Manus](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus).
-- [ ] **Thu May 13 · 1h** — [Context Rot](https://research.trychroma.com/context-rot).
-- [ ] **Fri May 14 · 1h** — The [Model Context Protocol](https://modelcontextprotocol.io/) docs: architecture and server primitives, from the current spec.
-- [ ] **Sat May 15 · 4h** — Add context compaction and a notes file to your agent. Measure tokens per task before and after.
-- [ ] **Sun May 16 · 4h** — Build an MCP server with two tools, ideally a stub of something you would actually want an agent to drive at work, using fake data. Connect it to your agent and to an existing MCP client (3h). Reinforce (1h).
+- [ ] **Mon May 10 · 1h** — Warm-up. [Lessons from Building Manus](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus).
+- [ ] **Tue May 11 · 1h** — [Context Rot](https://research.trychroma.com/context-rot).
+- [ ] **Wed May 12 · 1h** — Reread [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) with your traces open beside it.
+- [ ] **Thu May 13 · 1h** — The [Model Context Protocol](https://modelcontextprotocol.io/) docs: what changed in the spec since December.
+- [ ] **Fri May 14 · 1h** — Add per-turn token and cost logging to your agent.
+- [ ] **Sat May 15 · 4h** — Make your context cache-friendly: keep the system prompt and tool definitions as a stable prefix, and append instead of rewriting. Measure the cache hit rate and cost per task before and after.
+- [ ] **Sun May 16 · 4h** — Harden your MCP server: input validation, clear error messages, and any spec changes from Thursday. Add a third tool (3h). Reinforce (1h).
 
 **Reinforce**
 

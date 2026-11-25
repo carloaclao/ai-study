@@ -62,7 +62,7 @@ The rule of thumb: use the loop for understanding, and the projects for skill. T
 | 6 | GPUs and CUDA | 7 to 8 weeks | GPU MODE lectures + PMPP book | Hand-written CUDA kernels |
 | 7 | Capstone | 3+ weeks | Your choice | One deep project |
 
-**Ordering notes:** Phases 5 and 6 are independent of each other. If you get impatient for the hardware side, run Phase 6 in parallel with Phase 5 or swap them. Phase 4 has optional branches (interpretability, multimodal, RL) that you can defer.
+**Ordering notes:** Phases 5 and 6 are independent of each other. If you get impatient for the hardware side, run Phase 6 in parallel with Phase 5 or swap them. Phase 4 has optional branches (interpretability, multimodal, RL) that you can defer. Phase 5 barely depends on the math, so the schedule starts it early as a weekend side track during Phase 1.
 
 ## Choosing a direction
 

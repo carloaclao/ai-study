@@ -23,6 +23,8 @@ The schedule is the plan you follow; the roadmap is the reference it is built fr
 4. Spend the last 5 minutes writing 2 or 3 *claims* in this week's note: a one-line statement plus why it is true. For example: "Matrix-vector multiplication is a linear combination of the columns, because each column is where a basis vector lands."
 5. Tick the box and commit.
 
+**Weeks 1 to 4 are different:** weekends become mostly an agents side track while weekdays stay on math. The layout is at the top of the schedule.
+
 **Saturday (4 hours):** build. Code along if the schedule says so, then close the reference and write it again yourself in the matching `phase-*` folder.
 
 **Sunday (4 hours):** about 3 hours finishing the build, then the 1-hour **Reinforce** block:
